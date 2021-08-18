@@ -1,0 +1,98 @@
+{
+  "name": "redis-lsp",
+  "description": "SQL Language Server Extension for Visual Studio Code",
+  "author": "fagnercarvalho",
+  "license": "MIT",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fagnercarvalho/vscode-redis-lsp"
+  },
+  "bugs": {
+    "url": "https://github.com/fagnercarvalho/vscode-redis-lsp"
+  },
+  "publisher": "lighttiger2505",
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "multi-root ready"
+  ],
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "activationEvents": [
+    "workspaceContains:**/*.redis"
+  ],
+  "main": "./client/out/extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "redis-lsp",
+      "properties": {
+        "redis-lsp.address": {
+          "type": "string",
+          "default": "localhost:6379",
+          "description": "Redis instance address for caching data for autocompletion."
+        },
+        "redis-lsp.username": {
+          "type": "string",
+          "default": "",
+          "description": "Redis instance username for caching data for autocompletion."
+        },
+        "redis-lsp.password": {
+          "type": "string",
+          "default": "",
+          "description": "Redis instance password for caching data for autocompletion."
+        },
+        "redis-lsp.database": {
+          "type": "integer",
+          "default": "0",
+          "description": "Redis database for caching data for autocompletion."
+        },
+        "redis-lsp.db-cache": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enables keys and users autocompletion. Not recommended in production!"
+        }
+      }
+    },
+		"commands": [
+			{
+				"command": "extension.runCommand",
+				"title": "Run Command",
+        "enablement": "editorHasSelection",
+        "category": "Redis"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "extension.runCommand",
+					"when": "editorHasSelection"
+				}
+			]
+		},
+    "keybindings": [
+      {
+        "command": "extension.runCommand",
+        "key": "ctrl+shift+r",
+        "mac": "cmd+shift+r"
+      }
+    ]    
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "postinstall": "cd client && npm install && cd .."
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "mocha": "^6.2.2",
+    "@types/node": "^12.12.0",
+    "eslint": "^6.4.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "typescript": "^3.8.3"
+  }
+}

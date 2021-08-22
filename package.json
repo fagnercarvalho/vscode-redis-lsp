@@ -12,8 +12,8 @@
     "Programming Languages"
   ],
   "keywords": [
-    "redis", 
-    "lsp", 
+    "redis",
+    "lsp",
     "language server protocol"
   ],
   "preview": true,
@@ -50,33 +50,33 @@
         }
       }
     },
-		"commands": [
-			{
-				"command": "extension.runCommand",
-				"title": "Run Command",
+    "commands": [
+      {
+        "command": "extension.runCommand",
+        "title": "Run Command",
         "enablement": "editorHasSelection",
         "category": "Redis"
-			}
-		],
-		"menus": {
-			"editor/context": [
-				{
-					"command": "extension.runCommand",
-					"when": "editorHasSelection"
-				}
-			]
-		},
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.runCommand",
+          "when": "editorHasSelection"
+        }
+      ]
+    },
     "keybindings": [
       {
         "command": "extension.runCommand",
         "key": "ctrl+shift+r",
         "mac": "cmd+shift+r"
       }
-    ]    
+    ]
   },
   "activationEvents": [
     "workspaceContains:**/*.redis"
-  ],  
+  ],
   "author": "fagnercarvalho",
   "repository": {
     "type": "git",
@@ -93,10 +93,11 @@
   },
   "devDependencies": {
     "@types/mocha": "^5.2.7",
-    "mocha": "^6.2.2",
     "@types/node": "^12.12.0",
-    "eslint": "^6.4.0",
     "@typescript-eslint/parser": "^2.3.0",
-    "typescript": "^3.8.3"
+    "eslint": "^6.4.0",
+    "mocha": "^6.2.2",
+    "typescript": "^3.8.3",
+    "vsce": "^1.96.1"
   }
 }

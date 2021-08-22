@@ -1,29 +1,22 @@
 {
   "name": "redis-lsp",
-  "description": "SQL Language Server Extension for Visual Studio Code",
-  "author": "fagnercarvalho",
-  "license": "MIT",
   "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fagnercarvalho/vscode-redis-lsp"
+  "publisher": "fagnercarvalho",
+  "engines": {
+    "vscode": "^1.43.0"
   },
-  "bugs": {
-    "url": "https://github.com/fagnercarvalho/vscode-redis-lsp"
-  },
-  "publisher": "lighttiger2505",
+  "license": "MIT",
+  "displayName": "Redis Language Server",
+  "description": "Redis Language Server for VS Code",
   "categories": [
     "Programming Languages"
   ],
   "keywords": [
-    "multi-root ready"
+    "redis", 
+    "lsp", 
+    "language server protocol"
   ],
-  "engines": {
-    "vscode": "^1.43.0"
-  },
-  "activationEvents": [
-    "workspaceContains:**/*.redis"
-  ],
+  "preview": true,
   "main": "./client/out/extension",
   "contributes": {
     "configuration": {
@@ -80,6 +73,17 @@
         "mac": "cmd+shift+r"
       }
     ]    
+  },
+  "activationEvents": [
+    "workspaceContains:**/*.redis"
+  ],  
+  "author": "fagnercarvalho",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fagnercarvalho/vscode-redis-lsp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fagnercarvalho/vscode-redis-lsp/issues"
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

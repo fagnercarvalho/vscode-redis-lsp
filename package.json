@@ -92,6 +92,7 @@
     "postinstall": "cd client && npm install && cd ..",
     "deploy": "vsce publish --yarn"
   },
+  "icon": "images/redis.png",
   "devDependencies": {
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.12.0",

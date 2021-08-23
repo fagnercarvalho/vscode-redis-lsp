@@ -92,7 +92,7 @@
     "postinstall": "cd client && npm install && cd ..",
     "deploy": "vsce publish --yarn"
   },
-  "icon": "images/redis.png",
+  "icon": "https://github.com/fagnercarvalho/vscode-redis-lsp/blob/master/images/redis.png?raw=true",
   "devDependencies": {
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.12.0",

@@ -1,6 +1,6 @@
 {
   "name": "redis-lsp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "fagnercarvalho",
   "engines": {
     "vscode": "^1.43.0"
@@ -80,7 +80,7 @@
   "author": "fagnercarvalho",
   "repository": {
     "type": "git",
-    "url": "git@github.com:fagnercarvalho/vscode-redis-lsp.git"
+    "url": "https://github.com/fagnercarvalho/vscode-redis-lsp"
   },
   "bugs": {
     "url": "https://github.com/fagnercarvalho/vscode-redis-lsp/issues"

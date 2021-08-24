@@ -4,6 +4,7 @@ import {
     LanguageClient,
     LanguageClientOptions,
     ServerOptions,
+    DidChangeConfigurationNotification
 } from 'vscode-languageclient';
 
 import vscode = require('vscode');
@@ -13,18 +14,30 @@ let client: LanguageClient;
 export function activate(context: ExtensionContext) {
     const config = getConfig();
     let serverOptions: ServerOptions = {
-        command: "redis-lsp.exe",
+        command: "redis-lsp",
         args: [
             "-address", config.address, 
             "-username", config.username, 
             "-password", config.password, 
             "-database", config.database.toString(),
+            // https://pkg.go.dev/flag#hdr-Command_line_flag_syntax
             "-dbCacheEnabled=" + String(config.dbCache)
         ]
     };
 
     let clientOptions: LanguageClientOptions = {
-        documentSelector: [{ scheme: 'file',  language: '', pattern: '**/*.redis' }]
+        documentSelector: [{ scheme: 'file',  language: '', pattern: '**/*.redis' }],
+        synchronize: {
+            // preferences starting with these will trigger didChangeConfiguration
+            configurationSection: ['redis-lsp']
+          },        
+        middleware: {
+            workspace: {
+              didChangeConfiguration: () => {
+                client.sendNotification(DidChangeConfigurationNotification.type, { settings: getConfig() });
+              }
+            }
+          }
     };
 
     client = new LanguageClient(
